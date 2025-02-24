@@ -1,12 +1,9 @@
 import { Router } from "express";
-import RecipeController from "../controllers/RecipeController";
+import { RecipeController } from "../controllers/RecipeController";
 
-const recipeRouter = Router();
+const router = Router();
 
-const recipeController = new RecipeController();
+router.post("/recipes", RecipeController.createRecipe);
 
-recipeRouter.post("/", recipeController.create )
+export default router;
 
-recipeRouter.get("/", recipeController.getAll )
-
-export default recipeRouter;
